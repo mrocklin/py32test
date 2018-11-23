@@ -1,11 +1,12 @@
-from distutils.core import setup
+from setuptools import setup, find_packages
 import os
 from Cython.Build import cythonize
 
 setup(
-    name='myproj',
+    name='py32test',
     version='0.0.1',
-    ext_modules = cythonize(os.path.join("myproj", "__init__.pyx")),
-    packages=['myproj'],
+    ext_modules = cythonize(os.path.join("py32test", "*.py"),
+                            language_level='3'),
+    packages=find_packages(),
 )
 
